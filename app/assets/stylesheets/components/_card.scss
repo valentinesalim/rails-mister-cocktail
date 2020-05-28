@@ -13,22 +13,20 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card {
-    width: 400;
-    height: 300;
-}
 .cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 16px;
-  }
+    width: 400;
+    height: 300;
+}
   
   // Smallest device
-  @media (min-width: 100px) and (max-width: 575px) {
+@media (min-width: 100px) and (max-width: 575px) {
     .cards {
       grid-template-columns: 1fr;
     }
-  }
+}
   
   // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {

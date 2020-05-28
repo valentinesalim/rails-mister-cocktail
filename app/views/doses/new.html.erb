@@ -8,3 +8,4 @@
 <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name %> <br>
 <%= f.submit "add a dose"%>
 <% end %>
+<%= link_to 'Back to Main', cocktails_path %>

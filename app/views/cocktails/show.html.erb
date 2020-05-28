@@ -1,37 +1,15 @@
-<h1>This is your cocktail</h1>
-<h3><%= @cocktail.name  %></h3>
-<%= cl_image_tag(@cocktail.photo,
-width: 600, height: 500, crop: :fill) %>
-<% if @cocktail.doses  %>
-<h3>Ingredients</h3>
-<% doses = @cocktail.doses  %>
-<ul>
-  <% doses.each do |dose|  %>
-  <li>
-    <%= dose.description  %>
-    <%= dose.ingredient.name  %>
-    <br>
-    <%= link_to 'remove', cocktail_dose_path(@cocktail, dose),  
-    method: :delete, data: {confirm: "Are your sure?"} %> <br>
-  </li>
-  <% end  %>
-</ul>
-<% end  %>
-
-<% if @cocktail.reviews  %>
-<h3><%= "Reviews" %></h3>
-<% reviews = @cocktail.reviews  %>
-<ul>
-  <% reviews.each do |review|  %>
-  <li>
-    <%= review.description  %> <br>
-    <% review.rating.times do  %>
-    <i class="fa fa-star" aria-hidden="true"></i>
-      <% end  %>
-    </li>
-    <% end  %>
-</ul>
-<% end  %>
-<%= link_to 'add a dose', new_cocktail_path(@cocktail)  %> <br>
-<%= link_to 'add a review', new_cocktail_review_path(@cocktail)  %> <br>
-<%= link_to 'back to index', cocktails_path  %>
+<h1>Cocktail details</h1>
+Name :<%= @cocktail.name%>
+<% if @cocktail.doses.any? %>
+  <ul>
+    <% @cocktail.doses.each do |dose| %>
+      <li>
+        <%= dose.description %> | <%= dose.ingredient.name %> | <%= link_to "Delete a dose", dose_path(dose) , method: :delete, data: {confirm: "Are you sure??"} %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No doses yet</p>
+<% end %>
+<%= link_to "Add a dose", new_cocktail_dose_path(@cocktail)  %>
+<%= link_to 'Back to Main', cocktails_path %>
