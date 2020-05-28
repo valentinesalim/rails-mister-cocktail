@@ -1,7 +1,35 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <a class="navbar-brand" href="#">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
+</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Add a new cocktail</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Messages</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "cocktails-background.jpg" %>);"> 
+  <div class="container">
+    <h1><strong>Let's drink cocktails!</strong></h1>
+    <p>Change your life and learn how to drink a cocktail.</p>
+    <a class="btn btn-danger" href="#">Order now</a>
+  </div>
+</div>
+
 
 <% @cocktails.each do |cocktail| %>
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<% cl_image_tag(cocktail,
-    width: 400, height: 300, crop: :fill) %>);">
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),  url(<% image_path "cocktail.jpg" %>);">
   <div class="card-category"></div>
   <div class="card-description">
     <h2><%= cocktail.name  %></h2>
@@ -14,13 +42,15 @@
 
 
 
-<ul>
-  <% @cocktails.each do |cocktail| %>
-  <li>
-    <%= cl_image_tag(cocktail.photo,
-    width: 400, height: 300, crop: :fill) %>
-    <%= link_to cocktail.name, cocktail_path(cocktail)  %>
-  </li>
-  <% end  %>
-  <%= link_to 'create cocktail', new_cocktail_path  %>
-</ul>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
+</div>
