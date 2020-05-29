@@ -21,19 +21,15 @@
 </div>
 
 <div class="doses d-flex justify-content-center">
-        <img class='animated-gif' src =<%= image_path "cocktails-gif.gif" %>/>
-        <span>
-            <br><br><br>
-            <h1>Add your dose</h1>
-            <%= form_for [@cocktail, @dose] do |f| %>
-            <%= f.label :description %>
-            <%= f.text_field :description %>
-            <br>
-            <%= f.label :ingredient %>
-            <%= f.collection_select 
-            <%= f.button :submit, class:"btn btn-danger" %>
-            <%= link_to 'Back to Main', cocktails_path %>
-            <% end %>
-            
-        </span>
+    <img class='animated-gif' src =<%= image_path "cocktails-gif.gif" %>/>
+        <br><br><br>
+        <h1>Add your dose</h1>
+        <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.input :description %>
+        <br>
+        <%= f.association :ingredient %>
+        <%= f.submit :submit, class:"btn btn-danger" %>
+        <%= link_to 'Back to Main', cocktails_path %>
+        <% end %>
+    </span>
 </div>
