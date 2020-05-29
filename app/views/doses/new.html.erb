@@ -30,7 +30,7 @@
             <%= f.text_field :description %>
             <br>
             <%= f.label :ingredient %>
-            <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name %> <br>
+            <%= f.collection_select 
             <%= f.button :submit, class:"btn btn-danger" %>
             <%= link_to 'Back to Main', cocktails_path %>
             <% end %>
