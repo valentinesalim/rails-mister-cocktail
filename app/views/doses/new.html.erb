@@ -1,11 +1,39 @@
-<h1>Add your dose</h1>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <a class="navbar-brand" href="#">
+    <i class="fas fa-cocktail"></i>
+		<h4><strong>Cocktails!</strong></h4>
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
 
-<%= form_for [@cocktail, @dose] do |f| %>
-<%= f.label :description %>
-<%= f.text_field :description %>
-<br>
-<%= f.label :ingredient %>
-<%= f.collection_select :ingredient_id, Ingredient.all, :id, :name %> <br>
-<%= f.submit "add a dose"%>
-<% end %>
-<%= link_to 'Back to Main', cocktails_path %>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= new_cocktail_path %>">Add a new cocktail</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Messages</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="doses d-flex justify-content-center">
+        <img class='animated-gif' src =<%= image_path "cocktails-gif.gif" %>/>
+        <span>
+            <br><br><br>
+            <h1>Add your dose</h1>
+            <%= form_for [@cocktail, @dose] do |f| %>
+            <%= f.label :description %>
+            <%= f.text_field :description %>
+            <br>
+            <%= f.label :ingredient %>
+            <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name %> <br>
+            <%= f.button :submit, class:"btn btn-danger" %>
+            <%= link_to 'Back to Main', cocktails_path %>
+            <% end %>
+            
+        </span>
+</div>

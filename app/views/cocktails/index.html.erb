@@ -20,24 +20,24 @@
   </div>
 </div>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "cocktails-background.jpg" %>);"> 
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),  url(<%=image_path "cocktails-background.jpg" %>);">
   <div class="container">
     <h1><strong>Let's get drunk!</strong></h1>
     <p>Change your life and learn how to drink a cocktail.</p>
   </div>
 </div>
 
-
-<% @cocktails.each do |cocktail| %>
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cocktail.photo.attached? ? (cl_image_path cocktail.photo.key) : (image_path 'cocktail-default')')
-  <div class="card-category"></div>
-  <div class="card-description">
-    <h2><%=link_to cocktail.name, cocktail%></h2>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4 my-4">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.photo.attached? ? (cl_image_path cocktail.photo.key) : (image_path "cocktail-default.png")%>)">
+          <h1><%=link_to cocktail.name, cocktail%></h1>
+        </div>
+      </div>
+    <% end %>  
   </div>
-  <a class="card-link" href="#" ></a>
 </div>
-<% end %>
-
 
 
 
